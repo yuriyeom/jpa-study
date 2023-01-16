@@ -14,17 +14,34 @@ public class JpaMain {
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
+        try{
+            /*
+            // INSERT
+            Member member = new Member();
+            member.setId(1L);
+            member.setName("helloA");
 
-        Member member = new Member();
+            em.persist(member);
 
-        member.setId(1L);
-        member.setName("helloA");
 
-        em.persist(member);
+            // SELECT
+            Member findMember = em.find(Member.class, 1L);
 
-        tx.commit();
 
-        em.close();
+            // UPDATE
+            Member findMember = em.find(Member.class, 1L);
+            findMember.setName("helloJPA");
+            // em.persist 하지않고 객체의 값만 바꿔도 update 된다.
+
+            */
+
+            tx.commit();
+
+        }catch(Exception e){
+            tx.rollback();;
+        }finally {
+            em.close();;
+        }
 
         emf.close();
     }
