@@ -19,7 +19,7 @@ public class JpaMain {
             // INSERT
             Member member = new Member();
             member.setId(1L);
-            member.setName("helloA");
+            member.setUsername("helloA");
 
             em.persist(member);
 
@@ -30,7 +30,7 @@ public class JpaMain {
 
             // UPDATE
             Member findMember = em.find(Member.class, 1L);
-            findMember.setName("helloJPA");
+            findMember.setUsername("helloJPA");
             // em.persist 하지않고 객체의 값만 바꿔도 update 된다.
 
             */
